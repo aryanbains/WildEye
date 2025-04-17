@@ -10,8 +10,11 @@ const App: React.FC = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/camera" element={<LiveCamera />} />
+        <Route path="/login" element={<Auth />} />
+        <Route path="/dashboard" element={<Auth />} />
+        <Route path="/live-camera" element={<LiveCamera />} />
+        <Route path="/map" element={<div>Map View Coming Soon</div>} />
+        <Route path="/alerts" element={<div>Alerts Dashboard Coming Soon</div>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>

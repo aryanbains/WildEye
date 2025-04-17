@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './Home.css';
+import Navbar from '../components/Navbar';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -29,7 +30,17 @@ const Home: React.FC = () => {
 
   return (
     <div className="home-container">
+      <Navbar />
       <header className="hero-section">
+        <div className="hero-background"></div>
+        <div className="floating-particles">
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+          <div className="particle"></div>
+        </div>
+        <div className="wildlife-text">WILDLIFE</div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
