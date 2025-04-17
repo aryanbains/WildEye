@@ -1,0 +1,210 @@
+.camera-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.camera-sidebar {
+  width: 300px;
+  background-color: white;
+  padding: 1.5rem;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.camera-sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.camera-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.camera-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.camera-item:hover {
+  background-color: #f0f0f0;
+}
+
+.camera-item.selected {
+  background-color: #e3f2fd;
+  border-left: 4px solid #4CAF50;
+}
+
+.camera-status {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.camera-status[data-status="active"] {
+  background-color: #4CAF50;
+}
+
+.camera-status[data-status="inactive"] {
+  background-color: #f44336;
+}
+
+.camera-info {
+  flex: 1;
+}
+
+.camera-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.camera-info p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.last-detection {
+  font-size: 0.8rem;
+  color: #4CAF50;
+  font-style: italic;
+}
+
+.camera-main {
+  flex: 1;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.camera-feed {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-view {
+  flex: 1;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.placeholder-feed {
+  color: white;
+  text-align: center;
+}
+
+.placeholder-feed h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.camera-controls {
+  padding: 1rem;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.control-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.control-button:hover {
+  background-color: #e0e0e0;
+}
+
+.detections-panel {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.detections-panel h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.detections-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.detection-item {
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detection-time {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.detection-text {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.no-camera-selected {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #666;
+}
+
+.no-camera-selected h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .camera-container {
+    flex-direction: column;
+  }
+
+  .camera-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .camera-main {
+    padding: 1rem;
+  }
+} 
