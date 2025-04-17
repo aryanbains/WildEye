@@ -1,65 +1,54 @@
-# WildEye - Edge Computing for Wildlife Conservation
+# React + TypeScript + Vite
 
-WildEye is an edge computing platform that processes IoT sensor data in wildlife habitats to monitor animal movements and detect poaching activities. The system uses AI to provide real-time alerts and insights to conservationists.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- **Edge AI Processing**: Lightweight ML models for analyzing camera trap and motion sensor data
-- **Real-Time Alerts**: Instant notifications for detected threats
-- **Satellite Integration**: Environmental monitoring through satellite imagery
-- **Low-Power Design**: Optimized for energy efficiency in remote areas
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Technical Stack
+## Expanding the ESLint configuration
 
-- Python 3.8+
-- TensorFlow Lite for edge AI
-- MQTT for IoT communication
-- FastAPI for web services
-- SQLite for local data storage
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Project Structure
-
-```
-wild-eye/
-├── app/
-│   ├── __init__.py
-│   ├── main.py
-│   ├── models/
-│   │   ├── __init__.py
-│   │   └── animal_detector.py
-│   ├── sensors/
-│   │   ├── __init__.py
-│   │   └── camera_trap.py
-│   └── utils/
-│       ├── __init__.py
-│       └── alert_manager.py
-├── config/
-│   └── settings.py
-├── requirements.txt
-└── README.md
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-## Installation
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-1. Clone the repository
-2. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## Usage
-
-1. Configure the settings in `config/settings.py`
-2. Run the main application:
-   ```bash
-   python app/main.py
-   ```
-
-## License
-
-MIT License 
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
